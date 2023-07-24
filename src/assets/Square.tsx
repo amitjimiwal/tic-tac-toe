@@ -1,4 +1,8 @@
-const Square = ({value,onSquareClick}) => {
+interface Props{
+      value: number | string ;
+      onSquareClick: ()=>void
+}
+const Square = ({value,onSquareClick} : Props) => {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}

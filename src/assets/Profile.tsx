@@ -1,4 +1,8 @@
-const Profile = ({image,alt}) => {
+interface Props{
+      image:string,
+      alt:string
+}
+const Profile = ({image,alt} : Props) => {
   return (
     <div>
       <img src={image} alt={alt} />
