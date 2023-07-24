@@ -1,11 +1,11 @@
 import {useState} from 'react';
 import Board from './Board'
 export default function Game() {
-  const [history, setHistory] = useState<Array<string>>([Array(9).fill("")]);
+  const [history, setHistory] = useState<Array<Array<string>>>([Array(9).fill("")]);
   const [currentMove, setCurrentMove] = useState<number>(0);
   const currentSquares = history[currentMove];
   const xIsNext = currentMove % 2 === 0;
-  function handlePlay(nextSquares) {
+  function handlePlay(nextSquares:string[]) {
    const nextHistory=[...history.slice(0,currentMove+1),nextSquares]
    setHistory(nextHistory);
    setCurrentMove(nextHistory.length - 1);
@@ -14,6 +14,7 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
   const moves=history.map((squares,move)=>{
+    console.log(squares);
     let description:string;
     if(move>0){
       description='Go to move'+move

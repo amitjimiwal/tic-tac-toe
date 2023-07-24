@@ -1,5 +1,10 @@
 import Square from "./Square";
-const Board = ({xIsNext,squares,onPlay}) => {
+interface Props{
+  xIsNext: boolean,
+  squares:string[],
+  onPlay:(i:string[])=> void
+}
+const Board = ({xIsNext,squares,onPlay}:Props) => {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -7,7 +12,7 @@ const Board = ({xIsNext,squares,onPlay}) => {
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
-  function calculateWinner(squares) {
+  function calculateWinner(squares:string[]) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
