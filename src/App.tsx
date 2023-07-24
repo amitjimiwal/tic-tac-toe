@@ -4,9 +4,12 @@ import Game from './assets/Game';
 
 function App() {
   return (
-    <>
+    <div className='app'>
+      <h1>
+        Tic TAc Toe
+      </h1>
      <Game/>
-    </>
+    </div>
   )
 }
 
